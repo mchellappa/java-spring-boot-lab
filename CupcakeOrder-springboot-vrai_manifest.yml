@@ -1,0 +1,14 @@
+applications:
+- name: CupcakeOrder-springboot-vrai
+  buildpacks:
+  - java_buildpack_offline
+  disk_quota: 1G
+  path: ./target/cupcakeshop-0.0.1-SNAPSHOT.jar
+  instances: 1
+  memory: 1G
+  routes:
+  - route: cupcakeorder-springboot-vrai.apps.cac.preview.pcf.manulife.com
+  services:
+  - custom-rabbitmq
+  - autoscale-DE-PLAYAREA-CAC-DEV
+  stack: cflinuxfs2
